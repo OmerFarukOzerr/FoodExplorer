@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="area" type="com.example.foodapp.model.Areas" />
+    </data>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_area_rounded"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginVertical="8dp">
+
+        <TextView
+            android:id="@+id/areaRowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{area.strArea}"
+            android:textSize="14sp"
+            android:padding="2dp"
+            android:layout_margin="4dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

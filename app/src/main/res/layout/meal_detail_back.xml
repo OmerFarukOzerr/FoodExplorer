@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="mealDetails" type="com.example.foodapp.model.MealsDetail" />
+
+    </data>
+
+       <androidx.coordinatorlayout.widget.CoordinatorLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <com.google.android.material.appbar.MaterialToolbar
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:background="@drawable/bg_top_rounded_dark"
+               app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+               <ImageView
+                   android:id="@+id/detailBack"
+                   android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   android:layout_margin="16dp"
+                   android:background="@drawable/bg_circle_white"
+                   android:padding="8dp"
+                   android:src="@drawable/ic_arrow_back"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:tint="@color/DarkOrange" />
+
+               <ImageView
+                   android:id="@+id/detailFav"
+                   android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   android:layout_margin="16dp"
+                   android:layout_gravity="end"
+                   android:background="@drawable/bg_circle_white"
+                   android:padding="8dp"
+                   android:src="@drawable/ic_meal_detail_fav"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:tint="@color/DarkOrange" />
+
+           </com.google.android.material.appbar.MaterialToolbar>
+
+           <ImageView
+               android:id="@+id/detailFoodImage"
+               android:layout_width="match_parent"
+               android:layout_height="300dp"
+               android:scaleType="centerCrop"
+               android:bindWithDownloadUrl="@{mealDetails.strMealThumb}"
+               app:layout_constraintTop_toTopOf="parent" />
+
+       </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="ingAndMea" type="com.example.foodapp.model.IngredientAndMeasures" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/mealDetailMeasure"
+            android:layout_width="0dp"
+            android:layout_gravity="bottom"
+            android:layout_height="wrap_content"
+            android:text="@{ingAndMea.ingredents}"
+            android:textColor="@color/deepKoamaru"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/mealDetailIngredient"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:text="@{ingAndMea.measures}"
+            android:textColor="@color/deepKoamaru"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+</layout>

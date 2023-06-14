@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.MealDetailFragment">
+
+    <data>
+        <variable name="mealDetails" type="com.example.foodapp.model.MealsDetail" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mealDetailLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailContentLay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--Cover-->
+            <ImageView
+                android:id="@+id/detailFoodImage"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:scaleType="centerCrop"
+                android:bindWithDownloadUrl="@{mealDetails.strMealThumb}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/detailBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_circle_white"
+                android:padding="8dp"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorPrimary" />
+
+            <ImageView
+                android:id="@+id/detailFav"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_circle_white"
+                android:padding="8dp"
+                android:src="@drawable/ic_meal_detail_fav"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorSecondaryVariant" />
+            <!--Header-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/foodHeaderLay"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="-50dp"
+                android:background="@drawable/bg_top_rounded_dark"
+                app:layout_constraintTop_toBottomOf="@id/detailFoodImage">
+
+                <TextView
+                    android:id="@+id/detailCategoryText"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="@{mealDetails.strCategory}"
+                    android:textColor="@color/colorSecondary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_category"
+                    app:drawableTint="@color/colorSecondary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/detailAreaText"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="@{mealDetails.strArea}"
+                    android:textColor="@color/colorSecondary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:drawableStartCompat="@drawable/ic_flag"
+                    app:drawableTint="@color/colorSecondary"
+                    app:layout_constraintStart_toEndOf="@id/detailCategoryText"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/mealDetailPlayVideo"
+                    android:visibility="gone"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginEnd="23dp"
+                    android:src="@drawable/ic_youtube"
+                    app:layout_constraintBottom_toBottomOf="@id/detailAreaText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/detailAreaText"
+                    app:tint="@color/tartOrange" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--Content-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-20dp"
+                android:background="@drawable/bg_top_rounded"
+                android:paddingHorizontal="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/foodHeaderLay">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/detailFoodTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="20dp"
+                            android:textColor="@color/black"
+                            android:text="@{mealDetails.strMeal}"
+                            android:textSize="23sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/detailFoodImage" />
+
+                        <TextView
+                            android:id="@+id/detailDescTxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{mealDetails.strInstructions}"
+                            android:textColor="@color/charcoal"
+                            android:textSize="17sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/detailFoodImage" />
+
+                        <LinearLayout
+                            android:id="@+id/foodRecipesLay"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/bg_rounded_white_smoke"
+                            android:paddingHorizontal="15dp"
+                            android:paddingTop="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/ingredientsTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="1dp"
+                                        android:text="@string/ingredients"
+                                        android:textColor="@color/colorSecondary"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:layout_weight="1" />
+
+                                    <TextView
+                                        android:id="@+id/measureTitle"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="1dp"
+                                        android:text="@string/measure"
+                                        android:textColor="@color/colorSecondary"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:layout_weight="1" />
+
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/mealRecyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_marginVertical="5dp"
+                                android:layout_height="wrap_content"
+                                android:nestedScrollingEnabled="false"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--Loading-->
+        <ProgressBar
+            android:id="@+id/mealDetailProgressBar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--Disconnected-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mealDetailErrorDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <include
+                android:id="@+id/disconnectLay"
+                layout="@layout/network_error" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

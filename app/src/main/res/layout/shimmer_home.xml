@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/categoryParentLay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/homeToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="#DBE2F0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:elevation="3dp">
+
+                <View
+                    android:id="@+id/homeTitle"
+                    android:layout_width="122dp"
+                    android:layout_height="13dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/bg_shimmer"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <View
+                    android:id="@+id/homeSubtitle"
+                    android:layout_width="195dp"
+                    android:layout_height="13dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_shimmer"
+                    app:layout_constraintStart_toStartOf="@+id/homeTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/homeTitle"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/categoryLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/CategoryContent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <View
+                    android:layout_width="120dp"
+                    android:layout_height="13dp"
+                    android:background="@drawable/bg_shimmer"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="6dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_marginVertical="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iv_meal"
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/bg_shimmer" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:backgroundTint="@color/white"
+                        android:elevation="5dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                        app:layout_constraintEnd_toEndOf="@+id/cardView"
+                        app:layout_constraintStart_toStartOf="@+id/cardView"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="8dp">
+
+                            <View
+                                android:id="@+id/tv_meal"
+                                android:layout_width="80dp"
+                                android:layout_height="8dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="8dp"
+                                android:background="@drawable/bg_shimmer"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintEnd_toEndOf="@+id/tv_meal"
+                                app:layout_constraintStart_toStartOf="@+id/tv_meal"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_meal">
+
+                                <View
+                                    android:layout_width="70dp"
+                                    android:layout_height="8dp"
+                                    android:background="@drawable/bg_shimmer" />
+
+                                <View
+                                    android:id="@+id/view"
+                                    android:layout_width="1dp"
+                                    android:layout_height="16dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginRight="16dp"
+                                    android:background="@color/bgShimmer" />
+
+                                <View
+                                    android:layout_width="70dp"
+                                    android:layout_height="8dp"
+                                    android:background="@drawable/bg_shimmer" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/bg_shimmer"
+                    android:layout_gravity="center"/>
+
+                <View
+                    android:layout_width="80dp"
+                    android:layout_height="13dp"
+                    android:background="@drawable/bg_shimmer"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginVertical="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/shimmer_row_category" />
+
+                    <include layout="@layout/shimmer_row_category" />
+
+                    <include layout="@layout/shimmer_row_category" />
+
+                    <include layout="@layout/shimmer_row_category" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="50dp"
+                    android:layout_height="13dp"
+                    android:background="@drawable/bg_shimmer"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/shimmer_row_area" />
+                    <include layout="@layout/shimmer_row_area" />
+                    <include layout="@layout/shimmer_row_area" />
+                    <include layout="@layout/shimmer_row_area" />
+                    <include layout="@layout/shimmer_row_area" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

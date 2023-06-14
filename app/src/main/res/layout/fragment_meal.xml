@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    tools:context=".view.MealFragment"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="5dp">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/backToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryVariant">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/detailBackImage"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/bg_circle_white"
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_arrow_back"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:id="@+id/backBarTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:padding="2dp"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="19sp"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.SearchView
+                                    android:id="@+id/searchView"
+                                    android:layout_width="250dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginVertical="0.5dp"
+                                    android:focusable="true"
+                                    app:iconifiedByDefault="false"
+                                    android:focusableInTouchMode="true"
+                                    android:background="@drawable/bg_search"
+                                    android:focusedByDefault="true"
+                                    android:visibility="gone" />
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/progressLay"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginEnd="3dp"
+                                    app:layout_constraintEnd_toStartOf="@+id/progressAnimation"
+                                    app:layout_constraintStart_toStartOf="@+id/progressAnimation"
+                                    android:visibility="gone">
+
+                                        <com.airbnb.lottie.LottieAnimationView
+                                            android:id="@+id/progressAnimation"
+                                            android:layout_width="40dp"
+                                            android:layout_height="35dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            app:lottie_autoPlay="true"
+                                            app:lottie_loop="true"
+                                            app:lottie_rawRes="@raw/progress" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/mealLay"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mealRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mealErrorDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+                <include
+                    android:id="@+id/disconnectLay"
+                    layout="@layout/network_error" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                        <include layout="@layout/shimmer_row_meal" />
+                        <include layout="@layout/shimmer_row_meal" />
+                        <include layout="@layout/shimmer_row_meal" />
+                        <include layout="@layout/shimmer_row_meal" />
+                        <include layout="@layout/shimmer_row_meal" />
+                        <include layout="@layout/shimmer_row_meal" />
+                        <include layout="@layout/shimmer_row_meal" />
+                        <include layout="@layout/shimmer_row_meal" />
+
+                </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

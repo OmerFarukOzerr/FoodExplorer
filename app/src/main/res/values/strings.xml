@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Food Explorer</string>
+
+    <string name="search">Search...</string>
+    <string name="checkInternet">Please Check Your Connection</string>
+    <string name="emptyList">List is empty</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="measure">Measure</string>
+
+    <string name="home">Home</string>
+    <string name="favorite">Favorites</string>
+    <string name="hello_welcome">Welcome Chef </string>
+    <string name="home_title">What do you want to cook today?</string>
+    <string name="recommendation">Recommendation</string>
+    <string name="categories">Categories</string>
+    <string name="areas">Areas</string>
+    <string name="youtube_disconnected_msg">You Are Disconnected</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/bg_app_splash"/>
+    <item
+        android:width="230dp"
+        android:height="230dp"
+        android:gravity="center|center_horizontal">
+        <bitmap
+            android:src="@drawable/app_logo"
+            android:mipMap="true"/>
+    </item>
+</layer-list>
